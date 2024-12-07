@@ -551,7 +551,10 @@ public class ForcePackVelocity implements ForcePackAPI {
 
             final Optional<ResourcePackVersion> version = resourcePack.getVersion();
             if (version.isEmpty()) {
-                if (anyVersionPack == null) anyVersionPack = resourcePack; // Pick first all-version resource pack
+                if (anyVersionPack == null) {
+                    anyVersionPack = resourcePack; // Pick first all-version resource pack
+                    continue;
+                }
                 validPacks.add(resourcePack); // This is still a valid pack that we want to apply.
                 continue;
             }
